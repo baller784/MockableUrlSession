@@ -1,0 +1,21 @@
+{
+  "results": [
+    {
+      "gender": "female",
+      "name": {
+        "title": "Mrs",
+        "first": "Charlotte",
+        "last": "Tremblay"
+      },
+      "email": "charlotte.tremblay@example.com",
+      "phone": "452-055-7741",
+      "cell": "888-541-9837",
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/women/4.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/women/4.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/women/4.jpg"
+      },
+      "nat": "CA"
+    }
+  ]
+}
