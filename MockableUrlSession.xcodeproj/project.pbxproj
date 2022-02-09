@@ -24,7 +24,7 @@
 		9D84FBBD27732B3200E371F2 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9D84FBBC27732B3200E371F2 /* SnapKit */; };
 		9D84FBC027732BA700E371F2 /* users_fixture.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D84FBBF27732BA700E371F2 /* users_fixture.json */; };
 		9D84FBC327732BE500E371F2 /* DataFixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D84FBC227732BE500E371F2 /* DataFixtures.swift */; };
-		9D84FBC627732C2A00E371F2 /* NetworkSessionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D84FBC527732C2A00E371F2 /* NetworkSessionTest.swift */; };
+		9D84FBC627732C2A00E371F2 /* UserListLoaderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D84FBC527732C2A00E371F2 /* UserListLoaderTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,7 +57,7 @@
 		9D84FBB3277326E200E371F2 /* ImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtensions.swift; sourceTree = "<group>"; };
 		9D84FBBF27732BA700E371F2 /* users_fixture.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = users_fixture.json; sourceTree = "<group>"; };
 		9D84FBC227732BE500E371F2 /* DataFixtures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFixtures.swift; sourceTree = "<group>"; };
-		9D84FBC527732C2A00E371F2 /* NetworkSessionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSessionTest.swift; sourceTree = "<group>"; };
+		9D84FBC527732C2A00E371F2 /* UserListLoaderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListLoaderTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,7 +212,7 @@
 		9D84FBC427732C1C00E371F2 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				9D84FBC527732C2A00E371F2 /* NetworkSessionTest.swift */,
+				9D84FBC527732C2A00E371F2 /* UserListLoaderTest.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -344,7 +344,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D84FBC327732BE500E371F2 /* DataFixtures.swift in Sources */,
-				9D84FBC627732C2A00E371F2 /* NetworkSessionTest.swift in Sources */,
+				9D84FBC627732C2A00E371F2 /* UserListLoaderTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

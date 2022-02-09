@@ -10,19 +10,19 @@ import Foundation
 struct UserListLoader {
     static func fetchUsers(
         manager: NetworkManager = NetworkManager(),
-        completion: @escaping ([User]) -> Void
+        completion: @escaping (Result<[User], Error>) -> Void
     ) {
         guard let url = URL(string: "https://randomuser.me/api/?results=5") else { return }
 
         manager.makeRequest(
-            with: URLRequest(url: url),
+            with: url,
             decode: User.NetworkResponse.self,
             completionHandler: { response in
                 switch response {
                 case let .success(result):
-                    completion(result.results)
+                    completion(.success(result.results))
                 case let .failure(error):
-                    print(error)
+                    completion(.failure(error))
                 }
             }
         )

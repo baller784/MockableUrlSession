@@ -1,5 +1,5 @@
 //
-//  NetworkSessionTest.swift
+//  UserListLoaderTest.swift
 //  MockableUrlSessionTests
 //
 //  Created by Daniel Marcenco on 22.12.2021.
@@ -9,15 +9,18 @@ import XCTest
 @testable import MockableUrlSession
 
 class NetworkSessionMock: NetworkSession {
+    private(set) var requestUrl: URL?
+
     var data: Data?
     var error: Error?
 
     func loadData(with urlRequest: URLRequest, completionHandler: @escaping (Data?, Error?) -> Void) {
+        requestUrl = urlRequest.url
         completionHandler(data, error)
     }
 }
 
-class NetworkManagerTest: XCTestCase {
+class UserListLoaderTest: XCTestCase {
     func testSuccessfullResponse() {
         let fixtureData = DataFixtures.validUserListData
 
@@ -30,19 +33,21 @@ class NetworkManagerTest: XCTestCase {
         var expectedResults: [User]?
         var expectedError: Error?
 
-        networkManager.makeRequest(
-            with: URLRequest(url: URL(string: "https://randomuser.me/api/?results=5")!),
-            decode: User.NetworkResponse.self,
-            completionHandler: { response in
+        UserListLoader.fetchUsers(
+            manager: networkManager,
+            completion: { response in
                 switch response {
                 case let .success(result):
-                    expectedResults = result.results
+                    expectedResults = result
                 case let .failure(error):
                     expectedError = error
                 }
             }
         )
 
+        let expectedRequestUrl = URL(string: "https://randomuser.me/api/?results=5")
+
+        XCTAssert(networkSession.requestUrl == expectedRequestUrl)
         XCTAssertNotNil(expectedResults)
         XCTAssertNil(expectedError)
     }

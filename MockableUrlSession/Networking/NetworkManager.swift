@@ -29,11 +29,11 @@ class NetworkManager {
     }
 
     func makeRequest<T: Decodable>(
-        with router: URLRequest,
+        with url: URL,
         decode decodable: T.Type,
         completionHandler: @escaping (Result<T, Error>) -> Void
     ) {
-        session.loadData(with: router) { data, error in
+        session.loadData(with: URLRequest(url: url)) { data, error in
             guard let data = data else {
                 completionHandler(.failure(error!))
                 return

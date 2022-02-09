@@ -29,13 +29,18 @@ final class UserListViewModel {
     func fetchUsers() {
         UserListLoader.fetchUsers(
             manager: networkManager,
-            completion: { [weak self] users in
-                let viewModels = users.compactMap { UserListCellViewModel(user: $0) }
+            completion: { [weak self] response in
+                switch response {
+                case let .success(users):
+                    let viewModels = users.compactMap { UserListCellViewModel(user: $0) }
 
-                self?.items.append(contentsOf: viewModels)
+                    self?.items.append(contentsOf: viewModels)
 
-                DispatchQueue.main.async {
-                    self?.delegate?.shouldReloadTableView()
+                    DispatchQueue.main.async {
+                        self?.delegate?.shouldReloadTableView()
+                    }
+                case let .failure(error):
+                    print(error)
                 }
             }
         )
